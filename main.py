@@ -1,33 +1,12 @@
 from turtle import Turtle, Screen
 
-snakeHead = Turtle()
-snakeBody = Turtle()
-snakeTail = Turtle()
+initialPosition = [(-20, 0), (0, 0), (20, 0)]
 
-snakeHead.shape("square")
-snakeBody.shape("square")
-snakeTail.shape("square")
-
-snakeHead.color("white")
-snakeBody.color("white")
-snakeTail.color("white")
-
-snakeBody.goto(-20, 0)
-snakeTail.goto(-40, 0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for i in initialPosition:
+    snakeSegment = Turtle()
+    snakeSegment.shape ("square")
+    snakeSegment.color("white")
+    snakeSegment.goto(i)
 
 screen = Screen ()
 screen.setup(width=600, height=600)
