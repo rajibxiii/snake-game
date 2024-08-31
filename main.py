@@ -5,12 +5,12 @@ screen = Screen ()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title ("Snake Rax")
-screen.tracer(0)
+screen.tracer(0) # this method accelearates the complex graphics
 
 initialPosition = [(-20, 0), (0, 0), (20, 0)]
 snakeSegments = []
 
-for i in initialPosition:
+for i in initialPosition: # creating three segments of a snake
     snakeSegment = Turtle()
     snakeSegment.shape ("square")
     snakeSegment.color("white")
@@ -20,8 +20,8 @@ for i in initialPosition:
 
 gameOn = True
 while gameOn:
-    time.sleep(1)
-    screen.update()
+    time.sleep(1) # waits a second before the next update
+    screen.update() # updates screen every time after the below loop is executed
     for segment in snakeSegments:
         segment.forward(20)
         
