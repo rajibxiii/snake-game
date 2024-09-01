@@ -21,3 +21,4 @@ class Snake:
             self.snakeSegments[segment_number].goto(new_x, new_y) # going to the poisition of the second last segment from the last segment
             # all the segments are moved
         self.snakeSegments[0].forward(20) # now forwarding the first segment
+

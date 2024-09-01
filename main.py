@@ -3,11 +3,13 @@ from snake import Snake
 import time
 
 snake = Snake()
+snake.makeSnake()
 screen = Screen ()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title ("Snake Rax")
 screen.tracer(0) # this method accelearates the complex graphics
+
 
 gameOn = True
 while gameOn:
