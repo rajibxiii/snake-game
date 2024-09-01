@@ -2,20 +2,29 @@ from turtle import Screen
 from snake import Snake
 import time
 
-snake = Snake()
-snake.makeSnake()
 screen = Screen ()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title ("Snake Rax")
 screen.tracer(0) # this method accelearates the complex graphics
 
+snake = Snake()
+snake.makeSnake()
+
+# screen.listen()
+# screen.onkey(snake.up, "Up")
+
 
 gameOn = True
 while gameOn:
     screen.update() # updates screen every time after the below loop is executed
-    time.sleep(1) # waits a second before the next update
+    time.sleep(0.5) # waits a second before the next update
     snake.move()
+    screen.listen()
+    screen.onkey(snake.up, "Up")
+    screen.onkey(snake.down, "Down")
+    screen.onkey(snake.left, "Left")
+    screen.onkey(snake.right, "Right")
 
 screen.exitonclick()
 
