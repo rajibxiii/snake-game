@@ -11,14 +11,21 @@ class Snake:
     
     def makeSnake (self):
         for i in self.initialPosition: # creating three segments of a snake
-            snakeSegment = Turtle()
-            snakeSegment.shape ("square")
-            snakeSegment.color("white")
-            snakeSegment.penup()
-            snakeSegment.goto(i)
-            self.snakeSegments.append(snakeSegment)
+            self.add_segments(i) # i is the position where the segment will be added
         self.head = self.snakeSegments[0]
     
+    def add_segments (self, position):
+        snakeSegment = Turtle()
+        snakeSegment.shape ("square")
+        snakeSegment.color("white")
+        snakeSegment.penup()
+        snakeSegment.goto(position)
+        self.snakeSegments.append(snakeSegment)
+
+    def extend (self):
+        position = self.snakeSegments[-1].position() # negative value starts the loop from the last # position is a method of turtle class
+        self.add_segments(position)
+
     def move (self):
         for segment_number in range (len(self.snakeSegments)-1, 0, -1): # just a reverse loop (from 2 to 1, 0 is excluded)
             new_x = self.snakeSegments [segment_number-1].xcor() # getting the x coordinate of second last segment

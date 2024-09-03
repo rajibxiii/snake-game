@@ -29,13 +29,21 @@ while gameOn:
 
     if snake.head.distance(food) < 15: # when snake hits the food
         food.refresh()
+        snake.extend()
         scores.addScore()
 
     # when snake collides to the wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         gameOn = False
         scores.gameOver()
-
+    
+    # when snake collides to any other part of the body
+    for i in snake.snakeSegments:
+        if i == snake.head: # off course, distance between head and head is 0, that is less than 10
+            pass
+        elif snake.head.distance(i) < 10: # if the distance between head and any other segment is less than 10
+            gameOn = False
+            scores.gameOver()
 
 screen.exitonclick()
 
