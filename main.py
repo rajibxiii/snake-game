@@ -1,6 +1,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
 
 screen = Screen ()
@@ -12,6 +13,7 @@ screen.tracer(0) # this method accelearates the complex graphics
 snake = Snake()
 snake.makeSnake()
 food = Food()
+scores = Scoreboard(2) #TODO: prompt for speed
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -22,10 +24,13 @@ screen.onkey(snake.right, "Right")
 gameOn = True
 while gameOn:
     screen.update() # updates screen every time after the below loop is executed
-    time.sleep(0.1) # waits a second before the next update
+    time.sleep(0.3) # waits a second before the next update
     snake.move()
 
-    
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        scores.addScore()
+
 
 screen.exitonclick()
 
