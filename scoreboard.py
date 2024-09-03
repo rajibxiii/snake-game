@@ -1,6 +1,7 @@
 from turtle import Turtle
 ALIGHTMENT = "center" # written like this. because, in future we can change these from here. no need to find things in the code below
-FONT = ("Courier", 20, "normal")
+SCOREFONT = ("Courier", 18, "normal")
+TEXTFONT = ("Courier", 20, "bold")
 
 class Scoreboard (Turtle):
     def __init__ (self, speedChosen):
@@ -15,9 +16,13 @@ class Scoreboard (Turtle):
         self.update_score()
 
     def update_score (self): # writes score
-        self.write(f"Score: {self.currentScore}", align=ALIGHTMENT, font=FONT)
+        self.write(f"SCORE: {self.currentScore}", align=ALIGHTMENT, font=SCOREFONT)
 
     def addScore (self):
         self.currentScore += self.speeds[self.speed-1]
         self.clear() # clearing previous score
         self.update_score()
+    
+    def gameOver (self):
+        self.goto(0, 0)
+        self.write("GAME OVER!", align=ALIGHTMENT, font=TEXTFONT)

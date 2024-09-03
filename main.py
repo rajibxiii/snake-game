@@ -27,9 +27,14 @@ while gameOn:
     time.sleep(0.3) # waits a second before the next update
     snake.move()
 
-    if snake.head.distance(food) < 15:
+    if snake.head.distance(food) < 15: # when snake hits the food
         food.refresh()
         scores.addScore()
+
+    # when snake collides to the wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        gameOn = False
+        scores.gameOver()
 
 
 screen.exitonclick()

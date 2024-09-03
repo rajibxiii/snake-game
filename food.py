@@ -7,9 +7,9 @@ class Food (Turtle):
         self.shape("circle") #inherited from the super class (Turtle)
         self.penup()
         self.shapesize(stretch_len=0.6, stretch_wid=0.6)
-        self.color("blue")
+        self.color("white")
         self.speed("fastest")
-        self.refresh
+        self.refresh()
 
     def refresh (self):
         random_x = randint(-280, 280)
