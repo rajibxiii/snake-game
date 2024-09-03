@@ -14,6 +14,7 @@ class Snake:
             snakeSegment.penup()
             snakeSegment.goto(i)
             self.snakeSegments.append(snakeSegment)
+        self.head = self.snakeSegments[0]
     
     def move (self):
         for segment_number in range (len(self.snakeSegments)-1, 0, -1): # just a reverse loop (from 2 to 1, 0 is excluded)
@@ -21,17 +22,17 @@ class Snake:
             new_y = self.snakeSegments [segment_number-1].ycor() # getting the y coordinate of second last segment
             self.snakeSegments[segment_number].goto(new_x, new_y) # going to the poisition of the second last segment from the last segment
             # all the segments are moved, except the first one
-        self.snakeSegments[0].forward(20) # now forwarding the first segment
+        self.head.forward(20) # now forwarding the first segment
 
     def up (self):
-        self.snakeSegments[0].setheading(90)
+        self.head.setheading(90)
 
     def right (self):
-        self.snakeSegments[0].setheading(0)
+        self.head.setheading(0)
 
     def left (self):
-        self.snakeSegments[0].setheading(180)
+        self.head.setheading(180)
     
     def down (self):
-        self.snakeSegments[0].setheading(270)
+        self.head.setheading(270)
 

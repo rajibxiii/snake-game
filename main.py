@@ -18,13 +18,13 @@ snake.makeSnake()
 gameOn = True
 while gameOn:
     screen.update() # updates screen every time after the below loop is executed
-    time.sleep(0.5) # waits a second before the next update
-    snake.move()
+    time.sleep(0.1) # waits a second before the next update
     screen.listen()
     screen.onkey(snake.up, "Up")
     screen.onkey(snake.down, "Down")
     screen.onkey(snake.left, "Left")
     screen.onkey(snake.right, "Right")
+    snake.move()
 
 screen.exitonclick()
 
